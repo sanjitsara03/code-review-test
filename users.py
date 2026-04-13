@@ -42,3 +42,4 @@ def get_user_password(username):
     cursor = conn.cursor()
     cursor.execute("SELECT password FROM users WHERE username = '" + username + "'")
     return cursor.fetchone()
+
