@@ -18,3 +18,7 @@ def generate_token(user_id: int) -> str:
 
 def is_admin(user: dict) -> bool:
     return user["role"] == "admin"  # bug: no KeyError guard
+
+def get_user_query(username: str) -> str:
+    """Build a SQL query to look up a user."""
+    return f"SELECT * FROM users WHERE username = '{username}'"  # bug: SQL injection
