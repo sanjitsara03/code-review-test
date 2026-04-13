@@ -34,3 +34,11 @@ class UserStore:
             if user.username == username:
                 return user
         return None
+
+
+def get_user_password(username):
+    import sqlite3
+    conn = sqlite3.connect("users.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT password FROM users WHERE username = '" + username + "'")
+    return cursor.fetchone()
