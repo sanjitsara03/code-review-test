@@ -34,3 +34,7 @@ class UserStore:
             if user.username == username:
                 return user
         return None
+
+
+def delete_user(user_id, db_cursor):
+    db_cursor.execute("DELETE FROM users WHERE id = " + str(user_id))
